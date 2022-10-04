@@ -30,17 +30,22 @@ namespace Calculator
                 Console.WriteLine("Press 7 to End Calculator App \n ");
                 var userInput = Console.ReadLine();
 
-                int subOne;
-                int subTwo;
+                int subOne = 0;
+                int subTwo = 0;
+
+                int addOne = 0;
+                int addTwo = 0;
+
+
                 int[] sumArray = new int[3];
 
                 switch (userInput)
                 {
                     case "1":
-                        Addition();
+                        Addition(addOne, addTwo);
                         break;
                     case "2":
-                        Subtraction();
+                        Subtraction(subOne, subTwo);
                         break;
                     case "3":
                         Multiplication();
@@ -54,12 +59,12 @@ namespace Calculator
                     case "6":
                         SquareRoot();
                         break;
-                    case "9":
-                        Addition();
-                        break;
-                    case "0":
-                        Subtraction();
-                        break;
+                    //case "9":
+                    //    Addition();
+                    //    break;
+                    //case "0":
+                    //    Subtraction();
+                    //    break;
 
                     case "7":
                         runProgram = false;
@@ -69,12 +74,12 @@ namespace Calculator
                 }
             }
 
-             static int Addition()
+             static int Addition(int addOne, int addTwo)
             {
                 Console.WriteLine("\nEnter the two numbers you want to add: \n");
-                int addOne = Convert.ToInt32(Console.ReadLine());
+                addOne = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("+");
-                int addTwo = Convert.ToInt32(Console.ReadLine());
+                addTwo = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("=");
                 int sum = addOne + addTwo;
                 Console.WriteLine(sum + "\n");
@@ -88,12 +93,12 @@ namespace Calculator
             //    return sumArray;
             //}
 
-            static int Subtraction()
+            static int Subtraction(int subOne, int subTwo)
             {
                 Console.WriteLine("\nEnter the two numbers you want subtracted: \n");
-                int subOne = Convert.ToInt32(Console.ReadLine());
+                subOne = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("-");
-                int subTwo = Convert.ToInt32(Console.ReadLine());
+                subTwo = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("=");
                 int sum = subOne - subTwo;
                 Console.WriteLine(sum + "\n");

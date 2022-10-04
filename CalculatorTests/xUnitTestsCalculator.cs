@@ -13,6 +13,7 @@ namespace CalculatorTests
         public void AdditionFAIL()
         {
             Assert.Equal(5, Addition(2, 2));
+            Assert.True(false, "Expected to fail.");
         }
         [Fact]
         // Expect to pass.
@@ -25,6 +26,7 @@ namespace CalculatorTests
         public void SubtractionFAIL()
         {
             Assert.Equal(0, Subtraction(7, 5));
+            Assert.True(false, "Expected to fail.");
         }
 
         [Fact]
@@ -39,6 +41,7 @@ namespace CalculatorTests
         public void MultiplicationFAIL()
         {
             Assert.Equal(25, Multiplication(6, 5));
+            Assert.True(false, "Expected to fail.");
         }
 
 
@@ -47,16 +50,19 @@ namespace CalculatorTests
         public void PowerO2fTest()
         {
             Assert.Equal(25, Powerof2(5));
+
         }
+
 
         [Fact]
         // Expect to fail.
         public void PowerO2fFAIL()
         {
-            Assert.Equal(27, Powerof2(5));
+            Assert.NotEqual(26, Powerof2(5));
+            Assert.True(false, "Expected to fail.");
         }
 
-        [Fact]
+            [Fact]
         // Expect to pass.
         public void DivisionTest()
         {
@@ -80,7 +86,7 @@ namespace CalculatorTests
 
 
         //---------------------//
-        // Methods            //
+        // Methods  **********//
         //___________________//
 
         static int Addition(int addOne, int addTwo)
