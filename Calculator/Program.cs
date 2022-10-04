@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 namespace Calculator
@@ -21,9 +25,14 @@ namespace Calculator
                 Console.WriteLine("Press 4 for / Division");
                 Console.WriteLine("Press 5 for ^2 Power of Two");
                 Console.WriteLine("Press 6 for Square Root");
+                Console.WriteLine("Press 9 for Overloaded Addition");
+                Console.WriteLine("Press 0 for Overloaded Subtraction");
                 Console.WriteLine("Press 7 to End Calculator App \n ");
                 var userInput = Console.ReadLine();
 
+                int subOne;
+                int subTwo;
+                int[] sumArray = new int[3];
 
                 switch (userInput)
                 {
@@ -45,6 +54,13 @@ namespace Calculator
                     case "6":
                         SquareRoot();
                         break;
+                    case "9":
+                        Addition();
+                        break;
+                    case "0":
+                        Subtraction();
+                        break;
+
                     case "7":
                         runProgram = false;
                         Console.WriteLine("Program have ended");
@@ -53,7 +69,7 @@ namespace Calculator
                 }
             }
 
-            void Addition()
+             static int Addition()
             {
                 Console.WriteLine("\nEnter the two numbers you want to add: \n");
                 int addOne = Convert.ToInt32(Console.ReadLine());
@@ -62,9 +78,17 @@ namespace Calculator
                 Console.WriteLine("=");
                 int sum = addOne + addTwo;
                 Console.WriteLine(sum + "\n");
+                return sum;
             }
 
-            void Subtraction()
+            //static int Addition(int sumArray)
+            //{
+            //    Console.WriteLine("\nEnter the three numbers you want to add: \n");
+            //    sumArray = Convert.ToInt32(Console.ReadLine());
+            //    return sumArray;
+            //}
+
+            static int Subtraction()
             {
                 Console.WriteLine("\nEnter the two numbers you want subtracted: \n");
                 int subOne = Convert.ToInt32(Console.ReadLine());
@@ -73,9 +97,10 @@ namespace Calculator
                 Console.WriteLine("=");
                 int sum = subOne - subTwo;
                 Console.WriteLine(sum + "\n");
+                return sum;
             }
 
-            void Multiplication()
+            static int Multiplication()
             {
                 Console.WriteLine("\nEnter the two numbers you want multiplied: \n");
                 int multiOne = Convert.ToInt32(Console.ReadLine());
@@ -84,41 +109,46 @@ namespace Calculator
                 Console.WriteLine("=");
                 int sum = multiOne * multiTwo;
                 Console.WriteLine(sum + "\n");
+                return sum;
             }
 
 
-            void Powerof2()
+            static int Powerof2()
             {
                 Console.WriteLine("\nEnter the number you want Squared: \n");
                 int powOne = Convert.ToInt32(Console.ReadLine());
                 int sum = powOne * powOne;
                 Console.WriteLine(sum);
+                return sum;
             }
 
-            void SquareRoot()
+            static int SquareRoot()
             {
                 Console.WriteLine("\nEnter the number for the Square Root: \n");
                 int sqrt = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine(Math.Sqrt(sqrt).ToString());
+                return sqrt;
             }
 
-            void Division()
+            static int Division()
             {
                 Console.WriteLine("\nEnter the two numbers you want divided: \n");
                 int divOne = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("/");
                 int divTwo = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("=");
+                int returnValue = 0;
                 try
                 {
                     int sum = divOne / divTwo;
                     Console.WriteLine(sum + "\n");
+                    return sum;
                 }
                 catch (DivideByZeroException)
                 {
                     Console.WriteLine("You can't divide by 0");
-                }
-
+                    return returnValue;
+                }               
             }
         }
     }
